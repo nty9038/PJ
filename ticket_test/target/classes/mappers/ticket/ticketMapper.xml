@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="ticket">
+  <insert id="insert">
+  	insert into reservation values
+  	( seq_ticket_id.nextval,
+  	#{userid}, 
+  	seq_reserv_id.nextval,
+  	#{theater_name},
+  	#{view_date},
+  	#{view_time}, 
+  	#{title},
+  	#{seat},
+  	#{price}, 
+  	sysdate )
+  </insert>
+  
+  <select id="list" resultType="com.example.ticket_test.model.ticket.dto.TicketDTO">
+    select ticket_id,theater_name,view_date,view_time,title,seat,price,reserv_time from reservation
+    where userid=#{userid}
+    order by ticket_id
+  </select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

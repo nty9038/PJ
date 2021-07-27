@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="movie">
+  <insert id="insert">
+    insert into movie values 
+    (seq_movie.nextval, #{title}, #{director}, #{imgpath}, #{cast}, #{grade}, #{info})
+  </insert>
+  
+  <select id="list" resultType="com.example.ticket_test.model.movie.dto.MovieDTO">
+    select * from movie
+    order by movie_id
+  </select>
+  
+  <select id="viewMovie" resultType="com.example.ticket_test.model.movie.dto.MovieDTO">
+    select * from movie
+    where movie_id=#{movie_id}
+  </select>
+  
+  <update id="updateMovie">
+    update movie
+    set title=#{title}, director=#{director},
+    cast=#{cast}, grade=#{grade}, info=#{info}, imgpath=#{imgpath}
+    where movie_id=#{movie_id}
+  </update>
+  
+  <delete id="deleteMovie">
+    delete from movie
+    where movie_id=#{movie_id}
+  </delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="theater">
+  <insert id="insert">
+    insert into theater values
+    (seq_theater.nextval, #{theater_name}, #{auditorium}, #{seat}, #{address}, #{address2}, #{phone}, #{img})
+  </insert>
+  
+  <select id="list" resultType="com.example.ticket_test.model.theater.dto.TheaterDTO">
+  select * from theater order by theater_id
+  </select>
+  
+  <select id="viewTheater" resultType="com.example.ticket_test.model.theater.dto.TheaterDTO">
+  select * from theater
+  where theater_id=#{theater_id}
+  </select>
+  
+  <update id="updateTheater">
+  update theater
+  set theater_name=#{theater_name}, auditorium=#{auditorium}, seat=#{seat}, address=#{address},address2=#{address2}, phone=#{phone}, img=#{img}
+  where theater_id=#{theater_id}
+  </update>
+  
+  <delete id="deleteTheater">
+  delete from theater
+  where theater_id=#{theater_id}
+  </delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/* #main_menu2{
+	text-align:center;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-left: 30px;
+}
+#main_menu2 a{
+	padding: 0 50px 0 50px;
+}
+#member2{
+	text-align: right;
+	padding-right: 450px;
+	margin-top: 5px;
+}
+#member2 a{
+	padding: 0 10px 0 10px;
+}
+#logo_img img{
+	margin-top: 10px;
+}
+.include2 a:link{
+	color: black;
+	text-decoration: none;
+}
+.include2 a:visited{
+	color: black;
+}
+.include2 a:active{
+	color: red;
+	text-decoration: underline;
+}
+.include2 a:hover {
+	color: blue;
+} */
+
+/*  */
+
+header{
+	list-style: none;
+}
+header #member > nav > ul { /* 우상단 회원 메뉴 */
+	list-style: none;
+	position: absolute; right: 500px; top: 5; width: 160px;
+	display: flex;
+	/* background: blue; */
+}
+header #member > nav > ul > li { /* 우상단 회원 메뉴 리스트 */
+	flex: 1; line-height: 20px;
+}
+header #member > nav > ul > li > a { /* 우상단 회원 메뉴 하이퍼링크 */
+	font-weight: bold;
+}
+header #main_menu{ /* 헤더 */
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+header #main_menu nav { /* 헤더 전체 */
+	/* background: gray; */
+	border-bottom: 1px solid black;
+}
+header #main_menu nav > ul {
+	text-align: center;
+}
+header #main_menu nav > ul > li:hover ul { 
+	display: block;
+}
+header #main_menu nav > ul > li {
+	display: inline-block;
+	position: relative;
+}
+header #main_menu nav > ul > li > a{
+	text-decoration: none;	
+	/* background: green; */
+	display: block;
+	height: 70px;
+	line-height: 80px;
+	top: 15px;
+	/* margin-right: 20px; */
+}
+header #main_menu nav > ul > li > a:not(#menu_logo) {
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+	position: relative;
+	padding: 0 80px;
+}
+header #main_menu nav > ul > li > a:after {
+	content: ""; position: absolute; left: 0; bottom: 0; top: 78px;
+	width: 0; height: 5px; background: black;
+}
+header #main_menu nav > ul > li > a:not(#menu_logo):hover:after {
+	width: 100%;
+}
+header #main_menu nav > ul ul {
+	display: none;
+	position: absolute; text-align: center;
+	width: 100%;
+	list-style: none;
+	padding: 34px 0 0;
+}
+header #main_menu nav > ul ul:hover header #main_menu nav > ul > li > a:after {
+	content: ""; position: absolute; left: 0; bottom: 0; top: 78px;
+	width: 0; height: 5px; background: black;
+}
+header #main_menu nav > ul ul li {
+	line-height: 39px;
+}
+header #main_menu nav > ul ul a {
+	font-size: 14px;
+}
+header #main_menu nav > ul ul a:hover {
+	 color:red;
+	 text-decoration: underline;
+	 
+}

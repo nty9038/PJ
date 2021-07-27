@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="member">
+	<select id="login_check"
+	parameterType="com.example.ticket_test.model.member.dto.MemberDTO"
+	resultType="String">
+	select name from member2
+	where userid=#{userid} and passwd=#{passwd}
+	</select>
+	
+	<insert id="insert">
+	  insert into member2
+	  values( #{userid},#{passwd},#{name},#{email},#{zipcode},#{addr1},#{addr2},sysdate,'일반')
+	</insert>
+	
+	<select id="list" resultType="com.example.ticket_test.model.member.dto.MemberDTO">
+	select * from member2
+	order by userid desc
+	</select>
+	
+	<select id="viewMember" resultType="com.example.ticket_test.model.member.dto.MemberDTO">
+	  select * from member2
+	  where userid=#{userid}
+	</select>
+	
+	<select id="checkPw" resultType="int">
+	  select count(*) from member2
+	  where userid=#{userid} and passwd=#{passwd}
+	</select>
+	
+	<update id="updateMember">
+	  update member2
+	  set passwd=#{passwd}, name=#{name}, email=#{email},
+	  zipcode=#{zipcode}, addr1=#{addr1}, addr2=#{addr2}
+	  where userid=#{userid}
+	</update>
+	
+	<delete id="deleteMember">
+	  delete from member2
+	  where userid=#{userid}
+	</delete>
+
+</mapper>
+
+
+
